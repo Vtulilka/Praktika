@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51a3a1d563a340baaadd74625d1e757e" Name="Diagram1">
+        <EntityTypeShape EntityType="Shop_JVModel.Admission" Width="1.5" PointX="1.75" PointY="7.875" />
+        <EntityTypeShape EntityType="Shop_JVModel.Booking" Width="1.5" PointX="7" PointY="8.625" />
+        <EntityTypeShape EntityType="Shop_JVModel.Booking_condition" Width="1.5" PointX="4" PointY="8.875" />
+        <EntityTypeShape EntityType="Shop_JVModel.Books_Catalog" Width="1.75" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="Shop_JVModel.FK_Admissions_Books_Catalog" />
+        <AssociationConnector Association="Shop_JVModel.FK_Booking_Booking_condition" />
+        <AssociationConnector Association="Shop_JVModel.FK_Booking_Books_Catalog" />
+        <EntityTypeShape EntityType="Shop_JVModel.Author" Width="1.5" PointX="4.875" PointY="2.5" />
+        <EntityTypeShape EntityType="Shop_JVModel.Genre" Width="1.5" PointX="4.875" PointY="0.5" />
+        <EntityTypeShape EntityType="Shop_JVModel.Pub_houses" Width="1.5" PointX="4.875" PointY="4.625" />
+        <AssociationConnector Association="Shop_JVModel.FK_Books_Catalog_Authors" />
+        <AssociationConnector Association="Shop_JVModel.FK_Books_Catalog_Genres" />
+        <AssociationConnector Association="Shop_JVModel.FK_Books_Catalog_Pub_houses" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Shop_JVModelContainer" CdmEntityContainer="Shop_JVEntities">
+    <EntitySetMapping Name="Admissions">
+      <EntityTypeMapping TypeName="Shop_JVModel.Admission">
+        <MappingFragment StoreEntitySet="Admissions">
+          <ScalarProperty Name="Book_count" ColumnName="Book_count" />
+          <ScalarProperty Name="Date_of_adm" ColumnName="Date_of_adm" />
+          <ScalarProperty Name="Book_id" ColumnName="Book_id" />
+          <ScalarProperty Name="Admission_number" ColumnName="Admission_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="Shop_JVModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="Bookink_book_count" ColumnName="Bookink_book_count" />
+          <ScalarProperty Name="Book_id" ColumnName="Book_id" />
+          <ScalarProperty Name="Booking_number" ColumnName="Booking_number" />
+          <ScalarProperty Name="Booking_id" ColumnName="Booking_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Booking_condition">
+      <EntityTypeMapping TypeName="Shop_JVModel.Booking_condition">
+        <MappingFragment StoreEntitySet="Booking_condition">
+          <ScalarProperty Name="Booking_status" ColumnName="Booking_status" />
+          <ScalarProperty Name="Booking_canc_date" ColumnName="Booking_canc_date" />
+          <ScalarProperty Name="Booking_date" ColumnName="Booking_date" />
+          <ScalarProperty Name="Booking_number" ColumnName="Booking_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books_Catalog">
+      <EntityTypeMapping TypeName="Shop_JVModel.Books_Catalog">
+        <MappingFragment StoreEntitySet="Books_Catalog">
+          <ScalarProperty Name="Book_pub_house_code" ColumnName="Book_pub_house_code" />
+          <ScalarProperty Name="Author_code" ColumnName="Author_code" />
+          <ScalarProperty Name="Genre_code" ColumnName="Genre_code" />
+          <ScalarProperty Name="Book_price" ColumnName="Book_price" />
+          <ScalarProperty Name="Book_count" ColumnName="Book_count" />
+          <ScalarProperty Name="Book_age_categ" ColumnName="Book_age_categ" />
+          <ScalarProperty Name="Book_name" ColumnName="Book_name" />
+          <ScalarProperty Name="Book_id" ColumnName="Book_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="Shop_JVModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="Author_Name" ColumnName="Author_Name" />
+          <ScalarProperty Name="Author_code" ColumnName="Author_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="Shop_JVModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Genre_name" ColumnName="Genre_name" />
+          <ScalarProperty Name="Genre_code" ColumnName="Genre_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pub_houses">
+      <EntityTypeMapping TypeName="Shop_JVModel.Pub_houses">
+        <MappingFragment StoreEntitySet="Pub_houses">
+          <ScalarProperty Name="Pub_house_name" ColumnName="Pub_house_name" />
+          <ScalarProperty Name="Pub_house_code" ColumnName="Pub_house_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

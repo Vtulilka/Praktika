@@ -1,0 +1,31 @@
+﻿@model List<Shop1.Entities.Books_Catalog>
+@{
+    ViewBag.Title = "ListOfBooks";
+}
+
+<h2>Каталог книг:</h2>
+
+@Html.ActionLink("Добавить книгу", "CreateBook", "Shop", new { @class = "btn btn-default" })
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Наименование</th>
+            <th class="text-center">Доступное количество</th>
+            <th class="text-center">Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Books_Catalog in Model)
+            {
+                <tr class="text-center">
+                    <td>@Html.ActionLink(Books_Catalog.Book_name, "BookDetails", "Shop", new { Book_id = Books_Catalog.Book_id }, null)</td>
+                    <td>@Html.ActionLink("редактировать", "EditBook", new { controller = "Shop", Book_id = Books_Catalog.Book_id })</td>
+                    <td>@Books_Catalog.Book_price рублей</td>
+                    <td><a>Добавить в корзину</a></td>
+                    <td>@Html.ActionLink("удалить", "DeleteBook", new { controller = "Shop", Book_id = Books_Catalog.Book_id })</td>
+                </tr>
+            }
+    </tbody>
+</table>
+

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Shop_JVModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admissions">
+    <Key>
+      <PropertyRef Name="Admission_number" />
+    </Key>
+    <Property Name="Admission_number" Type="int" Nullable="false" />
+    <Property Name="Book_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Date_of_adm" Type="date" Nullable="false" />
+    <Property Name="Book_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="Author_code" />
+    </Key>
+    <Property Name="Author_code" Type="int" Nullable="false" />
+    <Property Name="Author_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="Booking_id" />
+    </Key>
+    <Property Name="Booking_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Booking_number" Type="int" Nullable="false" />
+    <Property Name="Book_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Bookink_book_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Booking_condition">
+    <Key>
+      <PropertyRef Name="Booking_number" />
+    </Key>
+    <Property Name="Booking_number" Type="int" Nullable="false" />
+    <Property Name="Booking_date" Type="date" Nullable="false" />
+    <Property Name="Booking_canc_date" Type="date" Nullable="false" />
+    <Property Name="Booking_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Books_Catalog">
+    <Key>
+      <PropertyRef Name="Book_id" />
+    </Key>
+    <Property Name="Book_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Book_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Genre_code" Type="int" Nullable="false" />
+    <Property Name="Author_code" Type="int" Nullable="false" />
+    <Property Name="Book_pub_house_code" Type="int" Nullable="false" />
+    <Property Name="Book_age_categ" Type="nvarchar" MaxLength="50" />
+    <Property Name="Book_count" Type="int" Nullable="false" />
+    <Property Name="Book_price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="Genre_code" />
+    </Key>
+    <Property Name="Genre_code" Type="int" Nullable="false" />
+    <Property Name="Genre_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pub_houses">
+    <Key>
+      <PropertyRef Name="Pub_house_code" />
+    </Key>
+    <Property Name="Pub_house_code" Type="int" Nullable="false" />
+    <Property Name="Pub_house_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Admissions_Books_Catalog">
+    <End Role="Books_Catalog" Type="Self.Books_Catalog" Multiplicity="1" />
+    <End Role="Admissions" Type="Self.Admissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books_Catalog">
+        <PropertyRef Name="Book_id" />
+      </Principal>
+      <Dependent Role="Admissions">
+        <PropertyRef Name="Book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Booking_condition">
+    <End Role="Booking_condition" Type="Self.Booking_condition" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking_condition">
+        <PropertyRef Name="Booking_number" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="Booking_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Books_Catalog">
+    <End Role="Books_Catalog" Type="Self.Books_Catalog" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books_Catalog">
+        <PropertyRef Name="Book_id" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="Book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Catalog_Authors">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="Books_Catalog" Type="Self.Books_Catalog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="Author_code" />
+      </Principal>
+      <Dependent Role="Books_Catalog">
+        <PropertyRef Name="Author_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Catalog_Genres">
+    <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+    <End Role="Books_Catalog" Type="Self.Books_Catalog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genres">
+        <PropertyRef Name="Genre_code" />
+      </Principal>
+      <Dependent Role="Books_Catalog">
+        <PropertyRef Name="Genre_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Catalog_Pub_houses">
+    <End Role="Pub_houses" Type="Self.Pub_houses" Multiplicity="1" />
+    <End Role="Books_Catalog" Type="Self.Books_Catalog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pub_houses">
+        <PropertyRef Name="Pub_house_code" />
+      </Principal>
+      <Dependent Role="Books_Catalog">
+        <PropertyRef Name="Book_pub_house_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Shop_JVModelContainer">
+    <EntitySet Name="Admissions" EntityType="Self.Admissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking_condition" EntityType="Self.Booking_condition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Books_Catalog" EntityType="Self.Books_Catalog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pub_houses" EntityType="Self.Pub_houses" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Admissions_Books_Catalog" Association="Self.FK_Admissions_Books_Catalog">
+      <End Role="Books_Catalog" EntitySet="Books_Catalog" />
+      <End Role="Admissions" EntitySet="Admissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Booking_condition" Association="Self.FK_Booking_Booking_condition">
+      <End Role="Booking_condition" EntitySet="Booking_condition" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Books_Catalog" Association="Self.FK_Booking_Books_Catalog">
+      <End Role="Books_Catalog" EntitySet="Books_Catalog" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Catalog_Authors" Association="Self.FK_Books_Catalog_Authors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books_Catalog" EntitySet="Books_Catalog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Catalog_Genres" Association="Self.FK_Books_Catalog_Genres">
+      <End Role="Genres" EntitySet="Genres" />
+      <End Role="Books_Catalog" EntitySet="Books_Catalog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Catalog_Pub_houses" Association="Self.FK_Books_Catalog_Pub_houses">
+      <End Role="Pub_houses" EntitySet="Pub_houses" />
+      <End Role="Books_Catalog" EntitySet="Books_Catalog" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
