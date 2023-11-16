@@ -28,7 +28,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Genres, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("Genre", Model.Genres, new { @class = "disabled", @readonly = true })
+            @Html.TextBox("Genres", Model.Genres, new { @class = "disabled", @readonly = true })
             @Html.ValidationMessageFor(model => model.Genres, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Authors, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("Author", Model.Authors, new { @class = "disabled", @readonly = true })
+            @Html.TextBox("Authors", Model.Authors, new { @class = "disabled", @readonly = true })
             @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Pub_house, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("Book_pub_house", Model.Pub_house, new { @class = "disabled", @readonly = true })
+            @Html.TextBox("Pub_house", Model.Pub_house, new { @class = "disabled", @readonly = true })
             @Html.ValidationMessageFor(model => model.Pub_house, "", new { @class = "text-danger" })
         </div>
     </div>
